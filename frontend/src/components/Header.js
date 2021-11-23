@@ -1,31 +1,52 @@
 import React from "react";
+import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <header className="header">
-      <nav className="nav">
-        <Link as={Link} to={"/Home"} className="logo nav-link">
-          MyTinerary
-        </Link>
-        <button className="menu-desplegable" id="check">
-          <i class="fas fa-bars"></i>
-        </button>
+      <Navbar collapseOnSelect expand="lg" className="fondo-nav" variant="dark">
+        <Container>
+          <Navbar.Brand className="tamaño-logo" href="#home">
+            <Link className="color-link" to="/Home">
+              MyTinerary
+            </Link>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto espacio"></Nav>
 
-        <ul className="nav-menu ">
-          <li className="nav-menu-item">
-            <Link as={Link} to={"/Home"} className="nav-menu-link nav-link">
-              home
-            </Link>
-          </li>
-          <li className="nav-menu-item">
-            <Link as={Link} to={"/Cities"} className="nav-menu-link nav-link">
-              Cities
-            </Link>
-          </li>
-          <li className="nav-menu-item"></li>
-        </ul>
-      </nav>
+            <Nav className="me-auto">
+              <Nav.Link>
+                <Link className="color-link" to="/Home">
+                  Home
+                </Link>
+              </Nav.Link>
+              <Nav.Link>
+                <Link className="color-link" to="/Cities">
+                  Cities
+                </Link>
+              </Nav.Link>
+              <NavDropdown
+                className="color-link"
+                title=""
+                id="collasible-nav-dropdown"
+              >
+                <NavDropdown.Item href="#action/3.2">Sign in</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Sign up</NavDropdown.Item>
+              </NavDropdown>
+              <img
+                className="icono-login"
+                src={require("../assets/loging.png").default}
+              />
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </header>
   );
 };

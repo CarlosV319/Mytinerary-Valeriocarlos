@@ -3,7 +3,7 @@ import React from "react";
 import { Carousel, Col, Card, Row } from "react-bootstrap";
 
 
-const Prueba = () => {
+const Slide = () => {
   const Cities = {
     datauno: [
       {
@@ -126,4 +126,4 @@ const Prueba = () => {
   );
 };
 
-export default Prueba;
+export default Slide;
