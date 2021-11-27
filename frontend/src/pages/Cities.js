@@ -1,4 +1,4 @@
-// import React, { cloneElement, useEffect } from "react";
+import { Card, Form} from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 
 function Cities() {
@@ -13,18 +13,21 @@ function Cities() {
 
   return (
     <div className="containert-cities">
+      <div className="input">
+      <Form.Control type="text" placeholder="Readonly input here..." />
+      </div>
       {cities.map((city) => {
         return (
-          <div className="imagen-city">
-            <div className="titulo-city">
-              {" "}
-              <h2> {city.title} </h2>
+          <Card>
+            <div className="imagen-city">
+              <Card.Img variant="top" src={city.src} />
             </div>
-            <div className="img-city">
-              {" "}
-              <img src={city.src}></img>
-            </div>
-          </div>
+            <Card.Body>
+              <div className="titulo-city">
+                <Card.Title>{city.title}</Card.Title>
+              </div>
+            </Card.Body>
+          </Card>
         );
       })}
     </div>
