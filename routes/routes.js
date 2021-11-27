@@ -1,10 +1,10 @@
-const express = require('express');
-const Router = express.Router();
+const Router =require('express').Router();
+const controllerCities =require('../controllers/controllerCities')
 
 
-Router.route("/api/Cities")
-get((req, res) => {
-    res.json({ response: { cities } });
-  })
+Router.route('/cities')
+.get(controllerCities.obtenerCities)
 
-module.exports = Router
+
+
+module.exports = Router;

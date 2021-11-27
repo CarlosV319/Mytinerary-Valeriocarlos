@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Main = () => {
+function Main () {
   return (
     <main className="main">
       <h2>MyTinerary</h2>
@@ -11,7 +11,7 @@ const Main = () => {
       </h5>
 
       <Link as={Link} to={"/Cities"} className="boton">
-        {" "}
+       
         <span id="span1"></span> Search Cities!!
       </Link>
     </main>

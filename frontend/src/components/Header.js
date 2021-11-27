@@ -12,7 +12,7 @@ const Header = () => {
       <Navbar collapseOnSelect expand="lg" className="fondo-nav" variant="dark">
         <Container>
           <Navbar.Brand className="tamaño-logo" href="#home">
-            <Link className="color-link" to="/Home">
+            <Link className="color-link" to="/">
               MyTinerary
             </Link>
           </Navbar.Brand>
@@ -22,7 +22,7 @@ const Header = () => {
 
             <Nav className="me-auto">
               <Nav.Link>
-                <Link className="color-link" to="/Home">
+                <Link className="color-link" to="/">
                   Home
                 </Link>
               </Nav.Link>
