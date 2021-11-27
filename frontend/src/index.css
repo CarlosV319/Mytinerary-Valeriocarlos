@@ -10,7 +10,21 @@ html * {
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-  animation: animate 15s ease infinite;
+  animation: animate 25s ease infinite;
+}
+.containert-cities {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  animation: animate 25s ease infinite;
+}
+.imagen-city img{
+  height: 30vh;
+  width: 100%;
 }
 
 @keyframes animate {
@@ -36,8 +50,8 @@ html * {
   }
 }
 .container-carousel {
-  margin-left: 10%;
-  margin-right: 10%;
+  /* margin-left: 10%;
+  margin-right: 10%; */
 }
 .boton {
   margin-top: 3rem;
@@ -391,3 +405,10 @@ html * {
 .tamaño-logo{
   font-size: 30px;
 }
+.row{
+  justify-content: center;
+}
+
+
+
+

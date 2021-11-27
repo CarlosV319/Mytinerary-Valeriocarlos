@@ -1,11 +1,10 @@
 import React from "react";
 
-import { Carousel, Col, Card, Row } from "react-bootstrap";
+import { Carousel, Col, Card, Row,Container } from "react-bootstrap";
 
-
-const Slide = () => {
-  const Cities = {
-    datauno: [
+export default class Slide extends React.Component {
+  Cities = [
+    [
       {
         title: "Arabia Saudita",
         src: "./assets/ArabiaSaudita.jpg",
@@ -26,32 +25,8 @@ const Slide = () => {
         src: "./assets/Miami.jpg",
       },
     ],
-  };
-  const Cities2 = {
-    datados: [
-      {
-        title: "Montreal",
-        src: "./assets/Montreal.jpg",
-      },
 
-      {
-        title: "Moscu",
-        src: "./assets/Moscu.jpg",
-      },
-
-      {
-        title: "Ottawa",
-        src: "./assets/Ottawa.jpg",
-      },
-
-      {
-        title: "Polonia",
-        src: "./assets/Polonia.jpg",
-      },
-    ],
-  };
-  const Cities3 = {
-    datatres: [
+    [
       {
         title: "Roma",
         src: "./assets/Roma.jpg",
@@ -72,58 +47,93 @@ const Slide = () => {
         src: "./assets/Whistler.jpg",
       },
     ],
-  };
-  const { datauno } = Cities;
-  const { datados } = Cities2;
-  const { datatres } = Cities3;
-  return (
-    <div className="container-carousel">
-      <Carousel>
-        <Carousel.Item>
-          <Row xs={1} md={2} className="g-4">
-            {datauno.map((item) => (
-              <Col>
-                <Card>
-                  <Card.Img variant="top" src={item.src} />
-                  <Card.Body>
-                    <Card.Title>{item.title}</Card.Title>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </Carousel.Item>
-        <Carousel.Item>
-          <Row xs={1} md={2} className="g-4">
-            {datados.map((item) => (
-              <Col>
-                <Card>
-                  <Card.Img variant="top" src={item.src} />
-                  <Card.Body>
-                    <Card.Title>{item.title}</Card.Title>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </Carousel.Item>
-        <Carousel.Item>
-          <Row xs={1} md={2} className="g-4">
-            {datatres.map((item) => (
-              <Col>
-                <Card>
-                  <Card.Img variant="top" src={item.src} />
-                  <Card.Body>
-                    <Card.Title>{item.title}</Card.Title>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </Carousel.Item>
-      </Carousel>
-    </div>
-  );
-};
 
-export default Slide;
+    [
+      {
+        title: "Montreal",
+        src: "./assets/Montreal.jpg",
+      },
+
+      {
+        title: "Moscu",
+        src: "./assets/Moscu.jpg",
+      },
+
+      {
+        title: "Ottawa",
+        src: "./assets/Ottawa.jpg",
+      },
+
+      {
+        title: "Polonia",
+        src: "./assets/Polonia.jpg",
+      },
+    ],
+  ];
+ 
+  render() {
+    return (
+     <>
+      <div className="container-carousel">
+        <Carousel interval={5000} pause="false">
+          {this.Cities.map((packs) => {
+            return (
+              <Carousel.Item>
+                <Container>
+                  <Row>
+                    {packs.map((pack) => {
+                      return (
+                        <Col xs={12} sm={5}>
+                          <Card>
+                            <Card.Img variant="top" src={pack.src} />
+                            <Card.Body>
+                              <Card.Title>{pack.title}</Card.Title>
+                            </Card.Body>
+                          </Card>
+                        </Col>
+                      );
+                    })}
+                  </Row>
+                </Container>
+              </Carousel.Item>
+            );
+          })}
+        </Carousel>
+      </div>
+      </>
+    )
+  }
+}
+
+
+
+{
+  /* <Carousel.Item>
+  <Row xs={1} md={2} className="g-4">
+    {datados.map((item) => (
+      <Col>
+        <Card>
+          <Card.Img variant="top" src={item.src} />
+          <Card.Body>
+            <Card.Title>{item.title}</Card.Title>
+          </Card.Body>
+        </Card>
+      </Col>
+    ))}
+  </Row>
+</Carousel.Item>
+<Carousel.Item>
+  <Row xs={1} md={2} className="g-4">
+    {datatres.map((item) => (
+      <Col>
+        <Card>
+          <Card.Img variant="top" src={item.src} />
+          <Card.Body>
+            <Card.Title>{item.title}</Card.Title>
+          </Card.Body>
+        </Card>
+      </Col>
+    ))}
+  </Row>
+</Carousel.Item> */
+}

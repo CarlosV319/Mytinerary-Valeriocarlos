@@ -1,0 +1,30 @@
+{
+  "name": "mytinerary-valerio",
+  "version": "1.0.0",
+  "description": "Proyecto para workshop de MERN",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlosV319/prueba2.git"
+  },
+  "keywords": [
+    "itinerary",
+    "react",
+    "node",
+    "mongo"
+  ],
+  "author": "Carlos Valerio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CarlosV319/prueba2/issues"
+  },
+  "homepage": "https://github.com/CarlosV319/prueba2#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
