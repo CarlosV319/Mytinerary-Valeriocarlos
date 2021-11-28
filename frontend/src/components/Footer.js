@@ -7,7 +7,7 @@ const Footer = () => {
       <h5>MyTinerary Proyect 2021 - all rights reserved</h5>
       <ul className="nav-menu ">
         <li className="nav-menu-item">
-          <Link as={Link} to={"/"} className="nav-menu-link nav-link">
+          <Link as={Link} to={"/"} className="nav-menu-link nav-link"> 
             home
           </Link>
         </li>

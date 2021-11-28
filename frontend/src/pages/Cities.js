@@ -1,36 +1,49 @@
-import { Card, Form} from "react-bootstrap";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { Card, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import City from "../components/City";
 
-function Cities() {
-  const [cities, setCities] = useState([]);
+export default class Cities extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: [],
+    };
+  }
 
-  useEffect(() => {
+  componentDidMount() {
     fetch("http://localhost:4000/api/cities")
       .then((res) => res.json())
-      .then((data) => setCities(data.response.cities))
-      .catch((err) => console.error(err.message));
-  }, []);
+      .then((result) => {
+        this.setState({
+          items: result.response.cities,
+        });
+      });
+  }
 
-  return (
-    <div className="containert-cities">
-      <div className="input">
-      <Form.Control type="text" placeholder="Readonly input here..." />
+  render() {
+    return (
+      <div className="containert-cities">
+        <div className="input">
+          <Form.Control type="text" placeholder="Readonly input here..." />
+        </div>
+        {this.state.items.map((city) => {
+          return (
+            <Card>
+              
+                <div className="imagen-city">
+                  <Card.Img variant="top" src={city.src} />
+                </div>
+              
+              <Card.Body>
+                <div className="titulo-city">
+                  <Card.Title>{city.title}</Card.Title>
+                </div>
+              </Card.Body>
+            </Card>
+          );
+        })}
       </div>
-      {cities.map((city) => {
-        return (
-          <Card>
-            <div className="imagen-city">
-              <Card.Img variant="top" src={city.src} />
-            </div>
-            <Card.Body>
-              <div className="titulo-city">
-                <Card.Title>{city.title}</Card.Title>
-              </div>
-            </Card.Body>
-          </Card>
-        );
-      })}
-    </div>
-  );
+    );
+  }
 }
-export default Cities;

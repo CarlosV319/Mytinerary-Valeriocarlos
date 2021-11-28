@@ -7,8 +7,8 @@ export default class Home extends React.Component {
   render() {
     return (
       <div className="containert">
-        <Main/>
-        <Slide/>
+        <Main />
+        <Slide />
       </div>
     );
   }
