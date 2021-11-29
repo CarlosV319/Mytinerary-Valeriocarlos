@@ -426,3 +426,32 @@ html * {
 }
 
 
+.container-city{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  text-align: center;
+}
+.container-card{
+  display: flex;
+  text-align: center;
+
+}
+.city-img img{
+  height: 50vh;
+  border-radius: 30px;
+}
+.container-n{
+
+  margin: 3rem;
+
+}
+
+
+.link-city{
+  padding: 2rem;
+  margin: 1rem;
+ text-decoration: none;
+}
