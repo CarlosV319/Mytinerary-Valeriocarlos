@@ -4,16 +4,21 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Cities from "./pages/Cities";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import elementoSinProps from "./pages/Elemento"
+import { withRouter } from "./utils/WithRouters";
+import City from "./components/City"
+const Elemento = withRouter(elementoSinProps)
 
-function App() {
+const App = () => {
+
   return (
     <BrowserRouter>
-      <Header/>
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/Cities" element={<Cities/>} />
+        <Route path="/city/:id" element={<City/>} />
       </Routes>
-      <Footer/>
+      
     </BrowserRouter>
   );
 }

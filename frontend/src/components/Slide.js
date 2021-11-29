@@ -6,67 +6,67 @@ export default class Slide extends React.Component {
   Cities = [
     [
       {
-        title: "Arabia Saudita",
-        src: "./assets/ArabiaSaudita.jpg",
+        title: "Amsterdams",
+        src: "./assets/Amsterdams.jpg",
       },
 
       {
-        title: "Grecia",
-        src: "./assets/Grecia.jpg",
+        title: "Barcelona",
+        src: "./assets/Barcelona.jpg",
       },
 
       {
-        title: "Indonesia",
-        src: "./assets/Indonesia.jpg",
+        title: "Bruges",
+        src: "./assets/Bruges.jpg",
       },
 
       {
-        title: "Miami",
-        src: "./assets/Miami.jpg",
-      },
-    ],
-
-    [
-      {
-        title: "Roma",
-        src: "./assets/Roma.jpg",
-      },
-
-      {
-        title: "Sidney",
-        src: "./assets/Sidney.jpg",
-      },
-
-      {
-        title: "Vancouver",
-        src: "./assets/Vancouver.jpg",
-      },
-
-      {
-        title: "Whistler",
-        src: "./assets/Whistler.jpg",
+        title: "Budapest",
+        src: "./assets/Budapest.jpg",
       },
     ],
 
     [
       {
-        title: "Montreal",
-        src: "./assets/Montreal.jpg",
+        title: "Cape Town",
+        src: "./assets/CapeTown.jpg",
       },
 
       {
-        title: "Moscu",
-        src: "./assets/Moscu.jpg",
+        title: "Lisbon",
+        src: "./assets/Lisbon.jpg",
       },
 
       {
-        title: "Ottawa",
-        src: "./assets/Ottawa.jpg",
+        title: "London",
+        src: "./assets/London.jpg",
       },
 
       {
-        title: "Polonia",
-        src: "./assets/Polonia.jpg",
+        title: "Madrid",
+        src: "./assets/Madrid.jpg",
+      },
+    ],
+
+    [
+      {
+        title: "New York",
+        src: "./assets/NewYork.jpg",
+      },
+
+      {
+        title: "Paris",
+        src: "./assets/paris.jpg",
+      },
+
+      {
+        title: "Prague",
+        src: "./assets/Prague.jpg",
+      },
+
+      {
+        title: "Rome",
+        src: "./assets/Rome.jpg",
       },
     ],
   ];
@@ -107,33 +107,3 @@ export default class Slide extends React.Component {
 
 
 
-{
-  /* <Carousel.Item>
-  <Row xs={1} md={2} className="g-4">
-    {datados.map((item) => (
-      <Col>
-        <Card>
-          <Card.Img variant="top" src={item.src} />
-          <Card.Body>
-            <Card.Title>{item.title}</Card.Title>
-          </Card.Body>
-        </Card>
-      </Col>
-    ))}
-  </Row>
-</Carousel.Item>
-<Carousel.Item>
-  <Row xs={1} md={2} className="g-4">
-    {datatres.map((item) => (
-      <Col>
-        <Card>
-          <Card.Img variant="top" src={item.src} />
-          <Card.Body>
-            <Card.Title>{item.title}</Card.Title>
-          </Card.Body>
-        </Card>
-      </Col>
-    ))}
-  </Row>
-</Carousel.Item> */
-}

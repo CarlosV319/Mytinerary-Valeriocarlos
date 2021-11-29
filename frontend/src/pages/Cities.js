@@ -1,48 +1,67 @@
 import React from "react";
 import { Card, Form } from "react-bootstrap";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
-import City from "../components/City";
+import axios from "axios";
+// import city from "../../../models/City";
 
 export default class Cities extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: [],
-    };
-  }
+  state = {
+    dataCities: [],
+    searchCity: [],
+  };
 
   componentDidMount() {
-    fetch("http://localhost:4000/api/cities")
-      .then((res) => res.json())
-      .then((result) => {
+    axios
+      .get("http://localhost:4000/api/cities")
+      .then((res) =>
         this.setState({
-          items: result.response.cities,
-        });
-      });
+          dataCities: res.data.respuesta,
+          searchCity: res.data.respuesta,
+        })
+      );
   }
 
+  handleChange = (e) => {
+    const valorDelImput = e.target.value.toLowerCase().trim();
+    let filtred = [];
+    filtred = this.state.dataCities.filter((ciudad) => {
+      const city = ciudad.name.toLowerCase().trim();
+      return city.startsWith(valorDelImput);
+    });
+    this.setState({ searchCity: filtred });
+  };
+
   render() {
+    const { searchCity } = this.state
     return (
       <div className="containert-cities">
+        <Header />
         <div className="input">
-          <Form.Control type="text" placeholder="Readonly input here..." />
+          <Form.Control type="text" placeholder="Readonly input here..." onChange={this.handleChange}/>
         </div>
-        {this.state.items.map((city) => {
+        { searchCity.length > 0 ? searchCity.map((element) => {
           return (
             <Card>
-              
-                <div className="imagen-city">
-                  <Card.Img variant="top" src={city.src} />
-                </div>
-              
+              <div key={element._id} className="imagen-city">
+                <Link to={`/city/${element._id}`}>
+                  <Card.Img variant="top" src={element.img} />
+                </Link>
+              {/* </div> */}
+
               <Card.Body>
-                <div className="titulo-city">
-                  <Card.Title>{city.title}</Card.Title>
-                </div>
+                {/* <div className="titulo-city"> */}
+                  <Card.Title>{element.name}</Card.Title>
+                  <p>{element.pais}</p>
               </Card.Body>
+                </div>
             </Card>
           );
-        })}
+        })
+        :<p className="aviso-alert">your search does not exist</p>
+      }
+        <Footer />
       </div>
     );
   }
