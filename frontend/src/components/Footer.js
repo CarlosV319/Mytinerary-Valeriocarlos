@@ -22,7 +22,3 @@ const Footer = () => {
 };
 export default Footer;
 
-//  Footer: recapitular la información del sitio, debería contener
-//  otro menú de navegación para facilitarle la vida al usuario,
-//  e información diversa a criterio de
-//  ustedes (dirección, redes sociales, mapa, lo que quieran).

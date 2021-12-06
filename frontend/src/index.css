@@ -8,12 +8,12 @@ html * {
 
 .containert {
   width: 100%;
-  min-height: 100vh;
+  min-height: 90vh;
   overflow: hidden;
   animation: animate 25s ease infinite;
 }
 .containert-cities {
-  width:100%;
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -22,18 +22,15 @@ html * {
   overflow: hidden;
   animation: animate 25s ease infinite;
 }
-.imagen-city img{
-  /* height: 30vh;
-  width: 100%; */
-  width:80%;
-  max-height:300px;
-  
+.imagen-city img {
+  width: 80%;
+  max-height: 300px;
 }
-.card{
+.card {
   width: 70%;
   margin: 1rem;
 }
-.input{
+.input {
   margin-top: 1rem;
   width: 40%;
 }
@@ -59,13 +56,10 @@ html * {
     background-size: cover;
   }
 }
-.container-carousel {
-  /* margin-left: 10%;
-  margin-right: 10%; */
-}
+
 .boton {
   margin-top: 3rem;
-  margin-bottom: 20rem;
+  margin-bottom: 10rem;
   padding: 1rem;
   font-size: 3rem;
   border-radius: 20px;
@@ -75,6 +69,23 @@ html * {
   letter-spacing: 4px;
   overflow: hidden;
   transition: 0.2s;
+}
+.boton-una-city {
+  margin-top: 3rem;
+  margin-bottom: 20rem;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 20px;
+  border: 0px;
+  background-color: rgba(8, 12, 223, 0.664);
+  color: whitesmoke;
+  letter-spacing: 4px;
+  overflow: hidden;
+}
+.boton-una-city:hover {
+  background: rgb(86, 183, 248);
+  box-shadow: 0 0 10px rgb(86, 183, 248), 0 0 20px rgb(86, 183, 248),
+    0 0 40px rgba(8, 12, 223, 0.664);
 }
 
 .boton:hover {
@@ -151,46 +162,13 @@ html * {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 30vh;
+  height: 25vh;
   background-color: black;
   color: whitesmoke;
   font-size: 1.5rem;
   padding-top: 3rem;
 }
 
-/* //styles cards */
-/* .cards-container{
-   width: 100%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
- } */
-/* .cards{
-  /* background-color: rgba(8, 12, 223, 0.264);  */
-/* display: flex; */
-/* justify-content: center; */
-/* align-items: center; */
-
-/* border-radius: 300px;  */
-/* text-align: center; */
-
-/* } */
-/* .card-height{ */
-
-/* padding: 1rem; */
-/* border-radius: 10px 100px; */
-/* padding-bottom: 2rem; */
-/* display: flex;
-  justify-content: center; */
-/* } */
-/* .container{ */
-
-/* } */
-/* .img{
-  /* height: 30vh; */
-/* width: 100%; */
-/* border-radius: 10px 100px; */
-/* }  */
 .wrapper {
   max-width: 1440px;
   width: 100%;
@@ -390,68 +368,141 @@ html * {
   }
 }
 
-.espacio{
+.espacio {
   width: 50vw;
 }
 
-.fondo-nav{
-
+.fondo-nav {
   background-color: #0769e9;
 }
 
-.color-link{
+.color-link {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.774);
   font-size: 25px;
 }
 
-.color-link:hover{
+.color-link:hover {
   color: black;
 }
-.icono-login{
-
+.icono-login {
   width: 50px;
 }
-.tamaño-logo{
+.tamaño-logo {
   font-size: 30px;
 }
-.row{
+.row {
   justify-content: center;
 }
 
-.city h2{
+.city h2 {
   width: 100%;
   height: 100vh;
   color: aliceblue;
 }
 
-
-.container-city{
+.container-city {
   display: flex;
+  background: url("./assets/fond2.jpg");
+
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-top: 1rem;
   text-align: center;
+  height: 90vh;
 }
-.container-card{
+.container-card {
   display: flex;
   text-align: center;
-
 }
-.city-img img{
+.city-img img {
   height: 50vh;
   border-radius: 30px;
 }
-.container-n{
-
+.container-n {
   margin: 3rem;
-
 }
 
-
-.link-city{
+.link-city {
   padding: 2rem;
   margin: 1rem;
- text-decoration: none;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+/* estilos de itinerarios */
+
+.caja_itinerarios {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #4260f0;
+  width: 100%;
+}
+.caja_itinerary {
+  width: 50%;
+  background-image: linear-gradient(
+    43deg,
+    #4260f0 0%,
+    #5094c8 46%,
+    #70ffd9 100%
+  );
+  border-radius: 30px;
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.img-itinerary img {
+  margin-top: 10px;
+  width: auto;
+  height: auto;
+  max-width: 300px;
+  max-height: 350px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+.acordion {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.name-city {
+  font-size: 2rem;
+}
+
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #1fa2ff 0%,
+    #12d8fa 51%,
+    #1fa2ff 100%
+  );
+}
+.btn-grad {
+  margin: 10px;
+  padding: 50px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: rgb(7, 57, 223);
+  box-shadow: 0 0 20px rgb(22, 16, 16);
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: rgb(218, 48, 18);
+  text-decoration: none;
+}
+.containercity {
 }

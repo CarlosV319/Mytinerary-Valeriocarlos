@@ -1,49 +1,30 @@
-import React from "react";
-import { Card, Form } from "react-bootstrap";
+import React,{useEffect} from "react";
+import { Card, Form,Alert } from "react-bootstrap";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
-import axios from "axios";
-// import city from "../../../models/City";
+import {connect} from "react-redux"
+import cityActions from "../redux/actions/cityActions";
 
-export default class Cities extends React.Component {
-  state = {
-    dataCities: [],
-    searchCity: [],
-  };
 
-  componentDidMount() {
-    axios
-      .get("http://localhost:4000/api/cities")
-      .then((res) =>
-        this.setState({
-          dataCities: res.data.respuesta,
-          searchCity: res.data.respuesta,
-        })
-      );
-  }
-
-  handleChange = (e) => {
-    const valorDelImput = e.target.value.toLowerCase().trim();
-    let filtred = [];
-    filtred = this.state.dataCities.filter((ciudad) => {
-      const city = ciudad.name.toLowerCase().trim();
-      return city.startsWith(valorDelImput);
-    });
-    this.setState({ searchCity: filtred });
-  };
-
-  render() {
-    const { searchCity } = this.state
+function Cities(props) {
+  useEffect(() => {
+    props.arrayCities();
+  }, []);
+console.log(props)
+  const auxCities = props.auxiliar;
+  const filtrar = props.filtrar;
+  
+ 
     return (
       <div className="containert-cities">
         <Header />
         <div className="input">
-          <Form.Control type="text" placeholder="Readonly input here..." onChange={this.handleChange}/>
+          <Form.Control type="search" placeholder="Read only input here..." onChange={(evento) => filtrar(auxCities, evento.target.value)}/>
         </div>
-        { searchCity.length > 0 ? searchCity.map((element) => {
+        { props.todasLasCities.length > 0 ? props.todasLasCities.map((element) => {
           return (
-            <Card>
+            <Card className="card-cities">
               <div key={element._id} className="imagen-city">
                 <Link to={`/city/${element._id}`}>
                   <Card.Img variant="top" src={element.img} />
@@ -59,10 +40,27 @@ export default class Cities extends React.Component {
             </Card>
           );
         })
-        :<p className="aviso-alert">your search does not exist</p>
+        :<Alert  variant="info">
+        City not found, please try another search..
+      </Alert>
       }
         <Footer />
       </div>
     );
   }
+
+
+const mapStateToProps = state => {
+  return {
+    todasLasCities: state.cityReducer.cities,
+    auxiliar:state.cityReducer.copiaCities
+  }
 }
+
+const mapDispatchToProps = {
+  arrayCities: cityActions.fetchearCities,
+  filtrar: cityActions.filtrar,
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cities)
