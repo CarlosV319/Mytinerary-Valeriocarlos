@@ -27,8 +27,11 @@ const City = (props) => {
             <div key={props.Cities._id} className="city-img">
               <img src={props.Cities.img} alt={props.Cities.name} />
               <div className="container-n">
-                <p className="name-city">{props.Cities.name}</p>
+                <p className="name-city tuclase">{props.Cities.name}</p>
+                <p className="name-city tuclase">{props.Cities.pais}</p>
               </div>
+        
+              
             </div>
           </div>
         )}
