@@ -52,7 +52,7 @@ const City = (props) => {
                 <div className="img-itinerary">
                   <img src={iti.personImage} />
                 </div>
-                <div className="">
+                <div className="textoitinerari">
                   <h2>{iti.name}</h2>
                   <h2>{iti.lastName}</h2>
                   <h6>Duration : {iti.duration} Hours</h6>

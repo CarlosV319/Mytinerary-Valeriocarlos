@@ -200,7 +200,7 @@ html * {
 
 .card img {
   width: 100%;
-  height: 250px;
+  height: auto;
   display: block;
   object-fit: cover;
   border-radius: 20px;
@@ -465,6 +465,23 @@ html * {
   max-height: 350px;
   border-radius: 50%;
   margin-bottom: 1rem;
+}
+
+@media screen and (max-width:642px){
+  .img-itinerary img{
+    width: auto;
+  height: auto;
+  max-width: 150px;
+  max-height: 200px;
+  }
+  .textoitinerari{
+    margin: 10px;
+
+  }
+  .city-img img{
+    width: 100%;
+    height: auto;
+  }
 }
 .acordion {
   display: flex;
