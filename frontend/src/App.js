@@ -8,28 +8,30 @@ import Signin from "./pages/Signin";
 import { connect } from "react-redux";
 import authActions from "./redux/actions/authActions";
 import { useEffect } from "react";
-import {ToastContainer} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = (props) => {
- 
-    useEffect(() => {
-      if (localStorage.getItem("token")){
-        props.logInLS(localStorage.getItem("token"))
-      }
-    }, []) 
-   
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      props.logInLS(localStorage.getItem("token"));
+    }
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/Cities" element={<Cities/>} />
-        <Route path="/city/:id" element={<City/>} />
-        {props.usuario ? <Route path="*" element={<Home />} />:<><Route path="/Signup" element={<Signup />} />
-        <Route path="/signIn" element={<Signin />} /></>}
-        
+        <Route path="/" element={<Home />} />
+        <Route path="/Cities" element={<Cities />} />
+        <Route path="/city/:id" element={<City />} />
+        {props.usuario.token ? (
+          <Route path="*" element={<Home />} />
+        ) : (
+          <>
+            <Route path="/Signup" element={<Signup />} />
+            <Route path="/signIn" element={<Signin />} />
+          </>
+        )}
       </Routes>
       <ToastContainer
         position="top-left"
@@ -41,10 +43,10 @@ const App = (props) => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-      />      
+      />
     </BrowserRouter>
   );
-}
+};
 const mapStateToProps = (state) => {
   return {
     usuario: state.authReducer.usuario,
@@ -52,8 +54,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-  logInLS: authActions.logInLS
-}
+  logInLS: authActions.logInLS,
+};
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
-
+export default connect(mapStateToProps, mapDispatchToProps)(App);

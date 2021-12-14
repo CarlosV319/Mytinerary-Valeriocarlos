@@ -12,7 +12,7 @@ const authActions = {
                     localStorage.setItem("token", user.data.response.token);
                     dispatch({type:'USER', payload:user.data.response})
                     Swal.fire({
-                        position: 'top-end',
+                        position: 'top-rigth',
                         icon: 'success',
                         title: 'You successfully registered!',
                         timer: 2000,
@@ -57,13 +57,23 @@ const authActions = {
                  })
                 dispatch({type: "USER", payload: {token, name: response.data.name, urlImage: response.data.urlImage, _id: response.data._id}})
          } catch (error) {
-            return dispatch ({type: "LOG_OUT"})
+           
             } 
         }
     },
     logOut: () => {
         return async (dispatch, getState) => {
+            Swal.fire({
+                position: 'top-rigth',
+                icon: 'success',
+                title: 'You have successfully unlogged!',
+                text: 'See you soon!',
+                showConfirmButton: false,
+                timer: 3000
+            })
             dispatch({type: "LOG_OUT"})
+            localStorage.removeItem("token", "userLogged")
+
         }
     },
 }

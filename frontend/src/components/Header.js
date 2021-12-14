@@ -9,9 +9,15 @@ import { connect } from "react-redux";
 import authActions from "../redux/actions/authActions";
 
 const Header = (props) => {
-  var logoUser = props.usuario
-  ? <img className="icono-login" alt="img" src= {props.usuario.urlImage}/>
-  : <img className="icono-login" alt="img" src={require("../assets/loging.png").default}/>
+  var logoUser = props.usuario.token ? (
+    <img className="user" alt="img" src={props.usuario.urlImage} />
+  ) : (
+    <img
+      className="user"
+      alt="img"
+      src={require("../assets/loging.png").default}
+    />
+  );
 
   return (
     <header className="header">
@@ -38,43 +44,25 @@ const Header = (props) => {
                 </Link>
               </Nav.Link>
               <NavDropdown
-                className="color-link"
+                className="user"
                 title={logoUser}
                 id="collasible-nav-dropdown"
               >
-                
-                {props.usuario ? <NavDropdown.Item onClick={() => props.logOut()}>
-                  Log Out
-                </NavDropdown.Item> :<><NavDropdown.Item as={Link} to={"/Signin"}>
-                  Sign In
-                </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to={"/Signup"}>
-                  Sign Up
-                </NavDropdown.Item></> }
-
-              {/* {props.user.email === '' && (<>
-                <NavDropdown.Item  as={Link} to={"/Signup"}>
-                  Sign Up
-                </NavDropdown.Item>
-                <NavDropdown.Item  as={Link} to={"/Signin"}>
-                Login
-                </NavDropdown.Item> </>)}
-              {props.user.email !== '' && 
-                <NavDropdown.Item  as={Link} to={"/Cities"}>
-                  LogOut
-                  </NavDropdown.Item>} */}
-
-
-
-
-
-
-
+                {props.usuario.token ? (
+                  <NavDropdown.Item onClick={() => props.logOut()}>
+                    Log Out
+                  </NavDropdown.Item>
+                ) : (
+                  <>
+                    <NavDropdown.Item as={Link} to={"/Signin"}>
+                      Sign In
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to={"/Signup"}>
+                      Sign Up
+                    </NavDropdown.Item>
+                  </>
+                )}
               </NavDropdown>
-              {/* <img
-                className="icono-login"
-                src={logoUser } alt="img"
-              /> */}
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -91,4 +79,4 @@ const mapDispatchToProps = {
   logOut: authActions.logOut,
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

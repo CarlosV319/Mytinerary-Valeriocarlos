@@ -336,7 +336,7 @@ const Registro = (props) => {
               Password
               <input
                 className="email"
-                type="text"
+                type="password"
                 ref={inputPassword}
                 name="name"
               />

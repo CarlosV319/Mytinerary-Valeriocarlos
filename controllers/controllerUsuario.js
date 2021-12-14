@@ -42,7 +42,7 @@ const userControllers = {
         if (passwordMatch) {
           const token = jwt.sign({ ...existingUser }, process.env.SECRET_KEY);
           console.log(token);
-          res.json({ success: true, response: { token, email, img:existingUser.urlImage, name:existingUser.name }, error: null });
+          res.json({ success: true, response: { token, email, urlImage:existingUser.urlImage, name:existingUser.name }, error: null });
         } else {
           res.json({
             success: true,
