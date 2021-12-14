@@ -11,7 +11,7 @@ function Cities(props) {
   useEffect(() => {
     props.arrayCities();
   }, []);
-console.log(props)
+
   const auxCities = props.auxiliar;
   const filtrar = props.filtrar;
   
@@ -54,7 +54,7 @@ const mapStateToProps = state => {
   return {
     todasLasCities: state.cityReducer.cities,
     auxiliar:state.cityReducer.copiaCities
-  }
+  } 
 }
 
 const mapDispatchToProps = {

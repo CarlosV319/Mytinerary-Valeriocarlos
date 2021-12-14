@@ -17,10 +17,11 @@ html * {
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   text-align: center;
   overflow: hidden;
   animation: animate 25s ease infinite;
+  min-height: 100vh;
 }
 .imagen-city img {
   width: 80%;
@@ -159,13 +160,13 @@ html * {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   flex-direction: column;
-  height: 25vh;
+  height: 20vh;
   background-color: black;
   color: whitesmoke;
   font-size: 1.5rem;
-  padding-top: 3rem;
+  padding-top: 1rem;
 }
 
 .wrapper {

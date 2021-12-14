@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const cityActions = {
-  fetchearCities: () => {
+  fetchearCities: () => { 
     return (dispatch, getState) => {
       axios
         .get("http://localhost:4000/api/cities")
