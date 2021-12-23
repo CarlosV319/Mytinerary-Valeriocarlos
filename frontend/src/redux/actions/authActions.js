@@ -18,8 +18,18 @@ const authActions = {
                         timer: 2000,
                       })
                 }else{
-                   
-                    return { errores: user.data.errores };
+                    const error =user.data.error
+                    if(user.data.error){
+                    
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title:error,
+                        showConfirmButton: true,
+                        timer: 1500
+                      })
+                    }else{
+                    return { errores: user.data.errores };}
                 }
             }catch(error){
                 
@@ -29,7 +39,7 @@ const authActions = {
     signIn: (userLogin) => {
         return async(dispatch, getState)=>{
             try {
-                console.log(userLogin)
+              
                 const user = await axios.post('http://localhost:4000/api/auth/signIn',{...userLogin})
                 if(user.data.success && !user.data.error){
                     localStorage.setItem("token", user.data.response.token);

@@ -85,7 +85,7 @@ export default class Slide extends React.Component {
                       return (
                         <Col xs={12} sm={5}>
                           <Card>
-                            <Card.Img variant="top" src={pack.src} />
+                            <Card.Img  variant="top" src={pack.src} />
                             <Card.Body>
                               <Card.Title>{pack.title}</Card.Title>
                             </Card.Body>

@@ -6,10 +6,15 @@ const itinerariesSchema = new mongoose.Schema({
   personImage: { type: String, required: true },
   price: { type: Number, required: true },
   duration: { type: String, required: true },
-  hashtags: { type: String },
+  hashtags: {type: Array, required: true},
   CityID: [{ type: mongoose.Types.ObjectId, ref: "city", required: true }],
-  likes: Number,
-  comment: String,
+  likes: { type: Array },
+  comments:  [{
+    comment: {type: String},
+    name: {type: String},
+    urlImage: {type: String},
+    userId: {type: mongoose.Types.ObjectId, ref: "persona"},
+}],
 });
 
 const itinerary = mongoose.model("itinerary", itinerariesSchema);

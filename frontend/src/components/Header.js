@@ -9,8 +9,8 @@ import { connect } from "react-redux";
 import authActions from "../redux/actions/authActions";
 
 const Header = (props) => {
-  var logoUser = props.usuario.token ? (
-    <img className="user" alt="img" src={props.usuario.urlImage} />
+  var logoUser = props.token ? (
+    <img className="user" alt="img" src={props.urlImage} />
   ) : (
     <img
       className="user"
@@ -48,7 +48,7 @@ const Header = (props) => {
                 title={logoUser}
                 id="collasible-nav-dropdown"
               >
-                {props.usuario.token ? (
+                {props.token ? (
                   <NavDropdown.Item onClick={() => props.logOut()}>
                     Log Out
                   </NavDropdown.Item>
@@ -72,8 +72,10 @@ const Header = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
-    usuario: state.authReducer.usuario,
-  };
+    token:state.authReducer.token,
+    name: state.authReducer.name,
+    urlImage: state.authReducer.urlImage,  };
+  
 };
 const mapDispatchToProps = {
   logOut: authActions.logOut,

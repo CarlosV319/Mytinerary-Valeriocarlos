@@ -4,10 +4,14 @@ const controllerItineraries =require('../controllers/controllerItineraries')
 const controllerUsuario=require('../controllers/controllerUsuario')
 const validator=require('../config/validador')
 const passport =require ('../config/passport')
+const activitiesControllers =require('../controllers/activitiesControllers')
+
 
 const {obtenerCities,agregarCity,obtenerCity, borrarUnaCity,modificarUnaCity} = controllerCities
-const {obtenerItineraries,agregarItinerary,obtenerItinerary, borrarUnaItinerary,modificarUnaItinerary,obtenerItinerariosCiudad} = controllerItineraries
+const {obtenerItineraries,agregarItinerary,obtenerItinerary, borrarUnaItinerary,modificarUnaItinerary,obtenerItinerariosCiudad,likeDislikeItinerary,controlComment} = controllerItineraries
 const {newUser,logIn,tokenVerification}=controllerUsuario
+const { addActivity, getActivitiesOfOneItinerary } = activitiesControllers;
+
 
 Router.route('/cities')
 .get(obtenerCities) 
@@ -29,7 +33,7 @@ Router.route('/itineraries/:id')
 .delete(borrarUnaItinerary)
 .put(modificarUnaItinerary)
 
-Router.route('/city/itinerary/:id')
+Router.route('/itinerary/:id')
 .get(obtenerItinerariosCiudad)
 
 Router.route('/auth/signUp')
@@ -40,5 +44,21 @@ Router.route('/auth/signIn')
 
 Router.route('/tokenVerification')
 .get(passport.authenticate("jwt" ,{session:false}),tokenVerification)
+
+Router.route("/itineraries/like/:id")
+.put(passport.authenticate("jwt", {session: false}),likeDislikeItinerary)
+
+Router.route("/comments/:id")
+.put(passport.authenticate("jwt", {session: false}),controlComment)
+
+Router.route("/activities/:itineraryId")
+.get(
+    getActivitiesOfOneItinerary
+);
+
+Router.route("/activities")
+.post(addActivity);
+
+
 
 module.exports = Router;

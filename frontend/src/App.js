@@ -24,7 +24,7 @@ const App = (props) => {
         <Route path="/" element={<Home />} />
         <Route path="/Cities" element={<Cities />} />
         <Route path="/city/:id" element={<City />} />
-        {props.usuario.token ? (
+        {props.token ? (
           <Route path="*" element={<Home />} />
         ) : (
           <>
@@ -49,7 +49,7 @@ const App = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
-    usuario: state.authReducer.usuario,
+    token: state.authReducer.token
   };
 };
 

@@ -1,6 +1,6 @@
 const initialState = {
-  usuario: { email: "", urlImage: "", name: "", token: "" },
-  errores: "",
+  token: null, name: null, urlImage: null, _id: null,
+  errores: null,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -8,15 +8,22 @@ const authReducer = (state = initialState, action) => {
     case "USER":
       localStorage.setItem("token", action.payload.token);
       localStorage.setItem("name", action.payload.name);
+      localStorage.setItem("_id", action.payload._id);
       localStorage.setItem("urlImage", action.payload.urlImage);
       return {
-        ...state,
-        usuario: action.payload,
+        token: action.payload.token, 
+            name: action.payload.name,
+            urlImage: action.payload.urlImage,
+            _id: action.payload._id
+            
       };
     case "LOG_OUT":
       return {
         ...state,
-        usuario: "",
+            token:null,
+            name:null,
+            urlImage:null,
+            _id:null,
       };
     default:
       return state;
